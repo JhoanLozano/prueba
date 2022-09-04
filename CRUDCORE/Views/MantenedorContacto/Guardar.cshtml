@@ -1,0 +1,32 @@
+﻿@model ContactoModel //Utilizamos el modelo de contacto en esta página/formulario
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Crear contacto
+    </div>
+    <div class="card-body">
+        <form asp-action="Guardar" asp-controller="MantenedorContacto" method="post">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input asp-for="nombre" type="text" class="form-control">
+                <span asp-validation-for="nombre" class="text-danger"></span>   
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Teléfono</label>
+                <input asp-for="telefono" type="text" class="form-control">
+                <span asp-validation-for="telefono" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Correo</label>
+                <input asp-for="correo" type="email" class="form-control">
+                <span asp-validation-for="correo" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Guardar</button>
+            <a asp-action="Listar" asp-controller="MantenedorContacto" class="btn btn-warning"><i class="bi bi-list"></i> Volver a la lista</a>
+        </form>
+    </div>
+</div>
